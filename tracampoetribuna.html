@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tra Campo e Tribuna | Il libro</title>
+  <meta name="description" content="Tra Campo e Tribuna: tre stagioni, ottanta partite, migliaia di chilometri. La storia vera di un giovane arbitro e di un padre che ne racconta il cammino." />
+  <style>
+    :root {
+      --blue: #123c69;
+      --light-blue: #eaf3fb;
+      --gold: #c89b3c;
+      --text: #1f2933;
+      --muted: #5d6b78;
+      --white: #ffffff;
+      --soft: #f7f5f0;
+      --border: #e5e7eb;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Georgia, 'Times New Roman', serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.65;
+    }
+
+    img { max-width: 100%; display: block; }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      width: min(1120px, 92%);
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255,255,255,.94);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    nav {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      font-weight: 700;
+      letter-spacing: .03em;
+      color: var(--blue);
+      font-size: 1.05rem;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      font-family: Arial, sans-serif;
+      font-size: .9rem;
+      color: var(--muted);
+    }
+
+    .nav-links a:hover { color: var(--blue); }
+
+    .hero {
+      background: linear-gradient(135deg, var(--light-blue) 0%, #fff 56%, var(--soft) 100%);
+      padding: 86px 0 74px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 58px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      font-family: Arial, sans-serif;
+      font-size: .82rem;
+      font-weight: 700;
+      letter-spacing: .16em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    h1, h2, h3 { line-height: 1.15; margin: 0; color: var(--blue); }
+
+    h1 {
+      font-size: clamp(3rem, 7vw, 5.7rem);
+      letter-spacing: -0.04em;
+      margin-bottom: 20px;
+    }
+
+    .subtitle {
+      font-size: clamp(1.25rem, 2vw, 1.75rem);
+      color: #243b53;
+      max-width: 760px;
+      margin: 0 0 26px;
+    }
+
+    .hero p {
+      font-size: 1.08rem;
+      color: var(--muted);
+      max-width: 680px;
+      margin-bottom: 34px;
+    }
+
+    .button-row { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 22px;
+      border-radius: 999px;
+      font-family: Arial, sans-serif;
+      font-weight: 700;
+      transition: .2s ease;
+      border: 1px solid transparent;
+    }
+
+    .btn-primary {
+      background: var(--blue);
+      color: var(--white);
+      box-shadow: 0 12px 26px rgba(18,60,105,.22);
+    }
+
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 16px 30px rgba(18,60,105,.28); }
+
+    .btn-secondary {
+      border-color: var(--blue);
+      color: var(--blue);
+      background: rgba(255,255,255,.6);
+    }
+
+    .cover-card {
+      background: var(--white);
+      border-radius: 26px;
+      padding: 22px;
+      box-shadow: 0 24px 70px rgba(18,60,105,.16);
+      border: 1px solid rgba(18,60,105,.08);
+    }
+
+    .cover-placeholder {
+      aspect-ratio: 2/3;
+      border-radius: 18px;
+      background: linear-gradient(145deg, #143c66, #2f6690);
+      color: var(--white);
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 34px;
+      border: 10px solid #fff;
+      outline: 1px solid var(--border);
+    }
+
+    .cover-placeholder strong {
+      display: block;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1;
+      margin-bottom: 20px;
+    }
+
+    .cover-placeholder span {
+      font-family: Arial, sans-serif;
+      font-size: .9rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: #f3d58a;
+    }
+
+    section { padding: 82px 0; }
+
+    .section-title {
+      max-width: 770px;
+      margin-bottom: 34px;
+    }
+
+    .section-title h2 {
+      font-size: clamp(2rem, 4vw, 3.25rem);
+      margin-bottom: 16px;
+    }
+
+    .section-title p {
+      font-size: 1.1rem;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    .card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 28px;
+      box-shadow: 0 10px 28px rgba(31,41,51,.05);
+    }
+
+    .highlight {
+      background: var(--blue);
+      color: var(--white);
+      padding: 78px 0;
+    }
+
+    .highlight h2 {
+      color: var(--white);
+      font-size: clamp(2.3rem, 5vw, 4.4rem);
+      margin-bottom: 28px;
+      text-align: center;
+    }
+
+    .values {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      font-family: Arial, sans-serif;
+    }
+
+    .value {
+      border: 1px solid rgba(255,255,255,.25);
+      border-radius: 18px;
+      padding: 22px;
+      background: rgba(255,255,255,.08);
+      text-align: center;
+      font-weight: 700;
+    }
+
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .timeline .card h3, .audience .card h3 { margin-bottom: 10px; font-size: 1.45rem; }
+
+    .audience {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .quote-section {
+      background: var(--soft);
+    }
+
+    blockquote {
+      margin: 0;
+      font-size: clamp(1.35rem, 3vw, 2.25rem);
+      line-height: 1.35;
+      color: var(--blue);
+      max-width: 930px;
+    }
+
+    blockquote footer {
+      margin-top: 24px;
+      font-family: Arial, sans-serif;
+      font-size: .95rem;
+      color: var(--muted);
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .photo-placeholder {
+      min-height: 210px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, #dce9f5, #f6f1e7);
+      border: 1px dashed #a8b4bf;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+
+    .contact {
+      background: linear-gradient(135deg, #fff, var(--light-blue));
+      text-align: center;
+    }
+
+    .contact .section-title { margin-left: auto; margin-right: auto; }
+
+    .contact-box {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 26px;
+      padding: 34px;
+      max-width: 720px;
+      margin: 0 auto;
+      box-shadow: 0 18px 48px rgba(18,60,105,.1);
+    }
+
+    .contact-line {
+      font-family: Arial, sans-serif;
+      color: var(--muted);
+      margin: 18px 0 28px;
+    }
+
+    footer.site-footer {
+      background: #0f2f52;
+      color: rgba(255,255,255,.82);
+      padding: 34px 0;
+      font-family: Arial, sans-serif;
+      font-size: .9rem;
+    }
+
+    footer.site-footer .container {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid, .two-col { grid-template-columns: 1fr; }
+      .timeline, .values { grid-template-columns: 1fr; }
+      .audience, .gallery { grid-template-columns: repeat(2, 1fr); }
+      .nav-links { display: none; }
+      section { padding: 64px 0; }
+    }
+
+    @media (max-width: 560px) {
+      .audience, .gallery { grid-template-columns: 1fr; }
+      .hero { padding-top: 58px; }
+      .button-row .btn { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="container">
+      <a class="brand" href="#top">Tra Campo e Tribuna</a>
+      <div class="nav-links">
+        <a href="#storia">La storia</a>
+        <a href="#viaggio">Il viaggio</a>
+        <a href="#autore">Autore</a>
+        <a href="#contatti">Contatti</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Il libro</div>
+          <h1>Tra Campo e Tribuna</h1>
+          <p class="subtitle">Tre stagioni, ottanta partite, migliaia di chilometri. La storia vera di un giovane arbitro e di un padre che ha scelto di raccontarne il cammino.</p>
+          <p>Non è un libro sul calcio. Non è un manuale di arbitraggio. È il racconto di una crescita vissuta partita dopo partita, tra errori, soddisfazioni, paure, sacrifici e conquiste.</p>
+          <div class="button-row">
+            <a class="btn btn-primary" href="mailto:INSERISCI-LA-TUA-EMAIL?subject=Richiesta copia - Tra Campo e Tribuna">Richiedi una copia</a>
+            <a class="btn btn-secondary" href="#storia">Scopri la storia</a>
+          </div>
+        </div>
+        <div class="cover-card">
+          <div class="cover-placeholder">
+            <div>
+              <strong>Tra Campo<br>e Tribuna</strong>
+              <span>Inserisci qui la copertina</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="storia">
+      <div class="container two-col">
+        <div class="section-title">
+          <div class="eyebrow">Una storia vera</div>
+          <h2>Tutto è cominciato da un fischietto.</h2>
+          <p>Quando Francesco decide di intraprendere il percorso arbitrale, nessuno può immaginare dove quel viaggio lo porterà.</p>
+        </div>
+        <div class="card">
+          <p>Inizia così una storia fatta di allenamenti serali, trasferte nei campi di provincia, partite sotto la pioggia, osservazioni tecniche, promozioni, delusioni e nuove sfide.</p>
+          <p>Ma soprattutto nasce un percorso di crescita che coinvolge non solo un ragazzo, ma anche la sua famiglia.</p>
+          <p><strong>Tra Campo e Tribuna</strong> racconta tutto questo. Con gli occhi di un padre.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="highlight">
+      <div class="container">
+        <h2>Non è solo arbitraggio.</h2>
+        <div class="values">
+          <div class="value">È imparare a decidere</div>
+          <div class="value">È assumersi responsabilità</div>
+          <div class="value">È accettare gli errori</div>
+          <div class="value">È rispettare le regole</div>
+          <div class="value">È gestire la pressione</div>
+          <div class="value">È crescere</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="viaggio">
+      <div class="container">
+        <div class="section-title">
+          <div class="eyebrow">Il viaggio</div>
+          <h2>Tre stagioni raccontate dall'interno.</h2>
+          <p>Un percorso fatto di partite, trasferte, attese, giudizi, fiducia e nuove consapevolezze.</p>
+        </div>
+        <div class="timeline">
+          <div class="card">
+            <h3>Prima stagione</h3>
+            <p>Le prime designazioni, l'emozione dell'esordio, le difficoltà iniziali e la scoperta di un mondo nuovo.</p>
+          </div>
+          <div class="card">
+            <h3>Seconda stagione</h3>
+            <p>La crescita tecnica, le sfide più impegnative, la ricerca della continuità e della fiducia.</p>
+          </div>
+          <div class="card">
+            <h3>Terza stagione</h3>
+            <p>La maturità, le responsabilità maggiori e la consapevolezza che il vero risultato è il percorso compiuto.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-title">
+          <div class="eyebrow">A chi è dedicato</div>
+          <h2>Un libro per chi crede nello sport come scuola di vita.</h2>
+        </div>
+        <div class="audience">
+          <div class="card"><h3>Genitori</h3><p>Perché ogni percorso di crescita è anche il loro.</p></div>
+          <div class="card"><h3>Ragazzi</h3><p>Perché racconta impegno, perseveranza e coraggio.</p></div>
+          <div class="card"><h3>Arbitri</h3><p>Perché vi ritroveranno emozioni, dubbi e soddisfazioni note.</p></div>
+          <div class="card"><h3>Sportivi</h3><p>Perché parla di persone prima ancora che di calcio.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="quote-section">
+      <div class="container">
+        <blockquote>
+          “Crescere non è solo una questione di obiettivi. È una somma di scelte, sacrifici, errori, ripartenze e piccoli passi avanti che spesso si vedono solo guardandosi indietro.”
+          <footer>Estratto promozionale — sostituibile con una citazione definitiva dal libro</footer>
+        </blockquote>
+      </div>
+    </section>
+
+    <section>
+      <div class="container two-col">
+        <div class="section-title">
+          <div class="eyebrow">Prefazione</div>
+          <h2>Uno sguardo autorevole su una storia autentica.</h2>
+        </div>
+        <div class="card">
+          <p>Il libro è arricchito dalla prefazione di <strong>[Nome del prefatore]</strong>, che accompagna il lettore dentro il valore educativo dello sport, dell'arbitraggio e della crescita personale.</p>
+          <p>Sostituisci questo testo con una breve nota dedicata alla prefazione appena avrai il testo definitivo.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-title">
+          <div class="eyebrow">Galleria</div>
+          <h2>Alcuni momenti del percorso.</h2>
+          <p>Inserisci poche immagini significative: meglio sei foto vere che venti figurine. Anche qui, la tradizione insegna: togliere è spesso meglio che aggiungere.</p>
+        </div>
+        <div class="gallery">
+          <div class="photo-placeholder">Foto 1</div>
+          <div class="photo-placeholder">Foto 2</div>
+          <div class="photo-placeholder">Foto 3</div>
+          <div class="photo-placeholder">Foto 4</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="autore">
+      <div class="container two-col">
+        <div class="section-title">
+          <div class="eyebrow">L'autore</div>
+          <h2>Nicola Negro</h2>
+        </div>
+        <div class="card">
+          <p>Marketing manager, appassionato di sport e scrittura.</p>
+          <p>Per tre stagioni ha seguito il percorso arbitrale del figlio Francesco attraversando campi di provincia, trasferte, allenamenti e momenti che meritavano di essere raccontati.</p>
+          <p>Da quell'esperienza è nato questo libro. Non per raccontare il calcio. Ma per raccontare la crescita.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contatti" class="contact">
+      <div class="container">
+        <div class="section-title">
+          <div class="eyebrow">Contatti</div>
+          <h2>Richiedi una copia.</h2>
+          <p>Per informazioni sul libro o per richiederne una copia, puoi scrivere direttamente all'autore.</p>
+        </div>
+        <div class="contact-box">
+          <p class="contact-line">Sostituisci l'indirizzo email nel pulsante con il tuo contatto reale.</p>
+          <a class="btn btn-primary" href="mailto:INSERISCI-LA-TUA-EMAIL?subject=Richiesta copia - Tra Campo e Tribuna">Scrivimi</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div>© Nicola Negro — Tra Campo e Tribuna</div>
+      <div>Non è solo arbitraggio. È una storia di crescita.</div>
+    </div>
+  </footer>
+</body>
+</html>
